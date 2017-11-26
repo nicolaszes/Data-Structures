@@ -2,6 +2,7 @@ def quickSort(array) :
     # 基线条件：为空或者只包含一个元素的数组是‘有序’的
     if len(array) < 2 :
         return array
+    
     else :
         # 递归条件
         pviot = array[0]
