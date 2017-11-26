@@ -16,11 +16,4 @@ function bubbleSort (array) {
   return array;
 }
 
-// 交换数组项的值
-function swap (a, b) {
-  let aux = a;
-  a = b;
-  b = aux;
-}
-
 console.log(bubbleSort([4, 2, 5, 1, 6]))
