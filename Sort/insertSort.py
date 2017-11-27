@@ -1,4 +1,5 @@
 def insertSort (sortList) :
+    # 基线条件：为空或者只包含一个元素的数组是‘有序’的
     if len(sortList) < 2 :
         return sortList
     for i in range(1, len(sortList)) :

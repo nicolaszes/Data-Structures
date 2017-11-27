@@ -1,19 +1,19 @@
-function bubbleSort (array) {
-  if (array.length < 2) {
-    return array;
+function bubbleSort (arr) {
+  if (arr.length < 2) {
+    return arr;
   }
 
-  for (let i = 0; i < array.length; i++) {
-    // 代码优化，加上 i => array.length - i - 1
-    for (let j = 0; j < array.length - i - 1; j++) {
-      if (array[j] > array[j + 1]) {
+  for (let i = 0; i < arr.length; i++) {
+    // 代码优化，加上 i => arr.length - i - 1
+    for (let j = 0; j < arr.length - i - 1; j++) {
+      if (arr[j] > arr[j + 1]) {
         // 解构交换数组元素的位置
-        [array[j], array[j + 1]] = [array[j + 1], array[j]];
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
       }
     }
   }
 
-  return array;
+  return arr;
 }
 
 console.log(bubbleSort([4, 2, 5, 1, 6]))
