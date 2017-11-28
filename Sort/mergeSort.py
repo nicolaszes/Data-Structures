@@ -15,6 +15,7 @@ def mergeSort (sortList) :
 def merge (left, right) :
     # print(16, left)
     # print(17, right)
+    # 以空间换时间，新建了一个 result的变量
     result = []
     il = 0
     ir = 0
