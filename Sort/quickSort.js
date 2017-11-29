@@ -4,7 +4,6 @@ function quickSort (arr, left, right) {
   }
 
   let index = partition(arr, left, right)
-  console.log(index)
 
   if (left < index - 1) {
     quickSort(arr, left, index -1)
@@ -16,7 +15,8 @@ function quickSort (arr, left, right) {
 }
 
 function partition (arr, left, right) {
-  let pivot = arr[Math.floor((right + left) / 2)];
+  // 添加随机性 Math.random，优化近似于有序的数组
+  let pivot = arr[Math.floor(Math.random() * (right + left) / 2)];
   let i = left;
   let j = right;
 
