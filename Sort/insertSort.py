@@ -1,3 +1,8 @@
+import datetime
+import arr as randomList
+
+now = datetime.datetime.now()
+
 def insertSort (sortList) :
     # 基线条件：为空或者只包含一个元素的数组是‘有序’的
     if len(sortList) < 2 :
@@ -10,4 +15,7 @@ def insertSort (sortList) :
             i -= 1
     return sortList
 
-print(insertSort([3, 2, 5, 4, 6, 1]))
+insertSort(randomList.generateRandomList(10000, 0, 10))
+
+future = datetime.datetime.now()
+print(future - now)

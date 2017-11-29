@@ -1,4 +1,7 @@
-import math
+import math, datetime
+import arr as randomList
+
+now = datetime.datetime.now()
 
 # 分而治之的思想
 def mergeSort (sortList) :
@@ -38,4 +41,7 @@ def merge (left, right) :
 
     return result
 
-print(mergeSort([3, 2, 6, 5, 4, 7, 1]))
+mergeSort(randomList.generateRandomList(10000, 0, 10))
+
+future = datetime.datetime.now()
+print(future - now)

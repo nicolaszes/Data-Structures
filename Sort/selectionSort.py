@@ -1,3 +1,8 @@
+import datetime
+import arr as randomList
+
+now = datetime.datetime.now()
+
 def selectionSort(sortList) :
     if len(sortList) < 2 :
         return sortList
@@ -20,7 +25,11 @@ def selectionSort(sortList) :
             sortList[i], sortList[location] = sortList[location], sortList[i]
     return sortList
 
-print(selectionSort([2, 4, 6, 5, 1, 3]))
+selectionSort(randomList.generateRandomList(10000, 0, 10))
+
+future = datetime.datetime.now()
+print(future - now)
+
 
 # 存储最小元素的值
 # 存储最小元素的索引
@@ -42,4 +51,4 @@ def selectSort(arr):
         newArr.append(arr.pop(smallest))
     return newArr
 
-print(selectSort([5, 3, 6, 2, 10]))
+# print(selectSort([5, 3, 6, 2, 10]))

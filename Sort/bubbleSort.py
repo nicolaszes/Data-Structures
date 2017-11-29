@@ -1,3 +1,8 @@
+import datetime
+import arr as randomList
+
+now = datetime.datetime.now()
+
 def bubbleSort (sortList) :
     # 基线条件：为空或者只包含一个元素的数组是‘有序’的
     if (len(sortList) < 2) :
@@ -10,4 +15,7 @@ def bubbleSort (sortList) :
                 sortList[j], sortList[j + 1] = sortList[j + 1], sortList[j]
     return sortList
 
-print(bubbleSort([4, 2, 3, 6, 1]))
+bubbleSort(randomList.generateRandomList(10000, 0, 10))
+
+future = datetime.datetime.now()
+print(future - now)
