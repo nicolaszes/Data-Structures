@@ -1,5 +1,8 @@
-import math
-import random
+import math, random, datetime
+import arr as randomList
+
+now = datetime.datetime.now()
+
 def quickSort(sortList) :
     # 基线条件：为空或者只包含一个元素的数组是‘有序’的
     if len(sortList) < 2 :
@@ -17,4 +20,8 @@ def quickSort(sortList) :
     # 由所有大于基准值的元素组成的子数组
     greater = [j for j in sortList[1:] if j > pviot]
     return quickSort(less) + [pviot] + quickSort(greater)
-print(quickSort([1, 3, 6, 4, 2, 5]))
+
+quickSort(randomList.generateRandomList(100000, 0, 10))
+
+future = datetime.datetime.now()
+print(future - now)
