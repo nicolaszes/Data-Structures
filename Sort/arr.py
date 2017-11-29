@@ -1,4 +1,6 @@
 import math, random, datetime
+
+# 随机数组生成之前
 before = datetime.datetime.now()
 
 def generateRandomList (n, rangeL, rangeR) :
@@ -13,5 +15,7 @@ def generateRandomList (n, rangeL, rangeR) :
         i += 1
     return randomList
 
+# 随机数组生成之后
 now = datetime.datetime.now()
+# 随机数组生成耗时
 print(now - before)
