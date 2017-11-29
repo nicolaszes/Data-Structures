@@ -23,5 +23,6 @@ def quickSort(sortList) :
 
 quickSort(randomList.generateRandomList(100000, 0, 10))
 
+
 future = datetime.datetime.now()
 print(future - now)
