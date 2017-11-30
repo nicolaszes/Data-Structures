@@ -18,4 +18,4 @@ def generateRandomList (n, rangeL, rangeR) :
 # 随机数组生成之后
 now = datetime.datetime.now()
 # 随机数组生成耗时
-print(now - before)
+# print(now - before)
