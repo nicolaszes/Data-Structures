@@ -29,6 +29,7 @@ def partition (arr, l, r) :
     # [l+1...j] < p ; [lt+1..i) > p
     j = l
     # print(l + 1, r + 1)
+    # for i in range(l + 1)
     for i in range(l + 1, r + 1) :
         if arr[i] < arr[l] :
             j += 1
