@@ -30,6 +30,7 @@ def quickSortNoRepeat(sortList) :
 quickSortNoRepeat(randomList.generateRandomList(1000, 0, 1000))
 
 now = datetime.datetime.now()
+
 '''
 双路快速排序
 存在大量的重复元素的数组
@@ -119,7 +120,7 @@ print(len(quickSortInThreeWays(newList, left, right)))
 
 ai = datetime.datetime.now()
 # 测试排序速度
-print('双路快速排序', ai - future)
+print('三路快速排序', ai - future)
 
 '''
  双路快速排序
