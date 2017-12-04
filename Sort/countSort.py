@@ -1,48 +1,30 @@
 # 假设待排序列都是正整数
-# def countSort (arr) :
-#     B = []
-#     C = []
-#     arrMin = arrMax = arr[0]
-#
-#     for i in range(0, len(arr)) :
-#         arrMin = arrMin if arrMin <= arr[i] else arr[i]
-#         arrMax = arrMax if arrMax >= arr[i] else arr[i]
-#
-#         print(i, arr[i])
-#         print(C.index(arr[i]))
-#         return null
-#         C[arr[i]] = C[arr[i]] + 1 if C[arr[i]] else 1
-#     print(arrMin, arrMax, C)
-#
-#     for j in range(arrMin, arrMax) :
-#         C[j + 1] = (C[j + 1] or 0) + (C[j] or 0)
-#
-#     for k in range(len(arr), -1, -1) :
-#         B[C[arr[k]] - 1] = arr[k]
-#         C[arr[k]] -= 1
-#     return B
+import math, random, datetime
+import arr as randomList
+now = datetime.datetime.now()
 
-def countSort (alist, k) :
-    print(k)
-    print(len(alist))
-    alist3 = [0 for i in range(k)]
-    alist2 = [0 for i in range(len(alist))]
+def countSort(lista):
+    c = []
+    res = []
+    for i in range(0, 100):
+        c.append(0)
 
-    print(alist2)
-    print(alist3)
+    for i in range(0,len(lista)) :
+        c[lista[i]] = c[lista[i]] + 1
+        res.append(0)
 
-    for j in alist :
-        alist3[j] += 1
-    print(alist3)
+    for i in range(0,100):
+        c[i] = c[i - 1] + c[i]      #c中此时存放的是小于或者等于i的数字的个数
 
-    for i in range(1, k) :
-        alist3[i] = alist3[i - 1] + alist3[i]
+    for i in range(len(lista) - 1, -1, -1):
+        res[c[lista[i]] - 1] = lista[i]
+        c[lista[i]] = c[lista[i]] - 1
 
-    for l in alist[::-1] :
-        alist2[alist3[l] - 1] = l
-        alist3[l] -= 1
+    return res;
 
-    return alist2
+newList = randomList.generateRandomList(100000, 0, 10)
+print(len(countSort(newList)))
 
-newArr = [6, 3, 2, 5, 4]
-print(countSort(newArr, len(newArr)))
+future = datetime.datetime.now()
+# 测试排序速度
+print('计数排序', future - now)
