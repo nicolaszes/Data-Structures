@@ -1,4 +1,11 @@
 # 假设待排序列都是正整数
+# 计数排序在输入 n个 0到 k之间的整数时
+# 时间复杂度最好情况下为 O(n+k)
+# 最坏情况下为 O(n+k)
+# 平均情况为 O(n+k)
+# 空间复杂度为 O(n+k)
+# 计数排序是稳定的排序
+
 import math, random, datetime
 import arr as randomList
 now = datetime.datetime.now()
