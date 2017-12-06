@@ -50,7 +50,7 @@ class MinHeap :
         self.heapList = [0] + alist[:]
         while (i > 0):
             self.percDown(i)
-            i = i - 1
+            i -= 1
 
 bh = MinHeap()
 bh.buildHeap([ 9, 6, 5, 7, 2, 3])

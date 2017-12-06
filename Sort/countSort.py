@@ -15,13 +15,15 @@ def countSort(lista) :
     res = []
     for i in range(0, 100):
         c.append(0)
+    print('len', len(c))
 
     for i in range(0, len(lista)) :
         c[lista[i]] = c[lista[i]] + 1
         res.append(0)
+    print('len', len(c))
+    print('len', len(res))
 
     for i in range(0, 100) :
-        print(c[i - 1])
         c[i] = c[i - 1] + c[i]      #c中此时存放的是小于或者等于i的数字的个数
 
     for i in range(len(lista) - 1, -1, -1) :
