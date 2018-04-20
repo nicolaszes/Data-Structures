@@ -31,13 +31,17 @@ def recursionBinarySearch(arr, left, target):
     mid = int(len(arr) / 2)
     # print('mid', mid)
 
+    # 判断 target 不存在 arr 中
     if mid == 0 and target != arr[mid]:
         return -1
         
     if target < arr[mid]:
+        # 递归在 arr[0...mid]范围中查找
         return recursionBinarySearch(arr[0:mid], left, target)
     elif target > arr[mid]:
+        # 更新索引值
         left = left + mid
+        # 递归在 arr[mid...len(arr)+1]范围中查找
         return recursionBinarySearch(arr[mid:len(arr)+1], left, target)
     else:
         return left + mid
