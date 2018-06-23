@@ -10,6 +10,5 @@ def main():
         elif s_sum < 0:
             s_sum = 0
     print("最大子数组和为：", s_max)
-
 if __name__ == "__main__":
     main()
