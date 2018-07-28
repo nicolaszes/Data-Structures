@@ -11,13 +11,12 @@ def m(a, b):
   if a == 4:
     return v[b]
 
+  L = m(a + 1, a + b + 1)
+  R = m(a + 1, a + b + 2)
+  if L > R:
+    return L + v[b]
   else:
-    L = m(a + 1, a + b + 1)
-    R = m(a + 1, a + b + 2)
-    if L > R:
-      return L + v[b]
-    else:
-      return R + v[b]
+    return R + v[b]
 
 if __name__ == '__main__':
   print(m(0,0))

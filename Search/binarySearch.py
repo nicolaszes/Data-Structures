@@ -6,9 +6,9 @@
 # 有序数组 arr查找 target
 # 如果找到 target，返回相应的索引 index
 # 如果找不到 target，返回 -1
-def binarySearch (arr, n, target) :
+def binarySearch (arr, target) :
     l = 0
-    r = n - 1
+    r = len(arr) - 1
     # 在 arr[l...r]之中查找 target
     while (l <= r):
         mid = int(l + (r - l) / 2)
@@ -25,9 +25,9 @@ def binarySearch (arr, n, target) :
     return -1
         
 array = [-1,0,1,2,3,4,5,6,7,8,10,13,14,16,18,19,40]
-print(binarySearch(array, len(array), 40))
+print(binarySearch(array, 40))
 
-def recursionBinarySearch(arr, left, target):
+def recursionBinarySearch(arr, index, target):
     mid = int(len(arr) / 2)
     # print('mid', mid)
 
@@ -37,15 +37,15 @@ def recursionBinarySearch(arr, left, target):
         
     if target < arr[mid]:
         # 递归在 arr[0...mid]范围中查找
-        return recursionBinarySearch(arr[0:mid], left, target)
+        return recursionBinarySearch(arr[:mid], index, target)
     elif target > arr[mid]:
         # 更新索引值
-        left = left + mid
+        index = index + mid
         # 递归在 arr[mid...len(arr)+1]范围中查找
-        return recursionBinarySearch(arr[mid:len(arr)+1], left, target)
+        return recursionBinarySearch(arr[mid:], index, target)
     else:
-        return left + mid
+        return index + mid
 
 array = [-1,0,1,2,3,4,5,6,7,8,10,13,14,16,18,19,40]
-print(recursionBinarySearch(array, 0, 2))
+print(recursionBinarySearch(array, 0, 19))
         

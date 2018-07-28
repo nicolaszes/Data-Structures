@@ -42,38 +42,40 @@ def quickSortInTwoWays(sortList, left, right) :
     index = partitionInTwoWays(sortList, left, right)
 
     # 递归条件
-    if index > 1 and index < right - 1 :
-        quickSortInTwoWays(sortList, left, index - 1)
-        quickSortInTwoWays(sortList, index + 1, right)
+    # if index > 1 and index < right - 1 :
+    quickSortInTwoWays(sortList, left, index - 1)
+    quickSortInTwoWays(sortList, index + 1, right)
     return sortList
 
 def partitionInTwoWays (arr, l, r) :
     # 优化快速排序 => 随机化快速排序, 对于近似于有序的数组，使用随机快速排序
     # 随机生成基准值，最后和数组的第一个值进行数据交换
-    ran = int(math.floor(random.random() * (r - l) + l))
+    ran = int(math.floor(random.random() * (r + l) / 2))
     arr[l], arr[ran] = arr[ran], arr[l]
     pviot = arr[l]
 
-    i = l + 1
+    # arr[l + 1, i) <= pviot; arr(j, r] >= pviot
+    i = l
     j = r
     # (i, j)这个区间
     while i <= j :
-        while i <= r and arr[i] < pviot :
+        while arr[i] < pviot :
             i += 1
-        while j >= l + 1 and arr[j] > pviot :
+        while arr[j] > pviot :
             j -= 1
         if i > j : break
         arr[i], arr[j] = arr[j], arr[i]
         i += 1
         j -= 1
     arr[l], arr[j] = arr[j], arr[l]
-    return j
+    return i
 
-newList = randomList.generateRandomList(100000, 0, 10)
+newList = randomList.generateRandomList(300, 0, 10)
 left = 0
 right = len(newList) - 1
 
-print(len(quickSortInTwoWays(newList, left, right)))
+print(quickSortInTwoWays(newList, left, right))
+# print(len(quickSortInTwoWays(newList, left, right)))
 future = datetime.datetime.now()
 # 测试排序速度
 print('双路快速排序', future - now)
@@ -82,6 +84,7 @@ print('双路快速排序', future - now)
  三路快速排序
  面向对象封装
 '''
+lis = [1, 2, 3]
 def quickSortInThreeWays (arr, l, r) :
     # 基线条件：为空或者只包含一个元素的数组是‘有序’的
     if r - l < 2 :
@@ -92,9 +95,9 @@ def quickSortInThreeWays (arr, l, r) :
     arr[l], arr[ran] = arr[ran], arr[l]
     pviot = arr[l]
 
-    lt = l
-    gt = r + 1
-    i = l + 1
+    lt = l # arr[l + 1...lt]
+    gt = r + 1 # arr[gt...r]
+    i = l + 1 # arr[lt + 1...i)
 
     while i < gt :
         if arr[i] < pviot :
@@ -113,9 +116,10 @@ def quickSortInThreeWays (arr, l, r) :
     quickSortInThreeWays(arr, gt, r)
     return arr
 
-newList = randomList.generateRandomList(100000, 0, 10)
+newList = randomList.generateRandomList(300, 0, 10)
 left = 0
 right = len(newList) - 1
+print(quickSortInThreeWays(newList, left, right))
 print(len(quickSortInThreeWays(newList, left, right)))
 
 ai = datetime.datetime.now()

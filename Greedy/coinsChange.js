@@ -4,7 +4,7 @@ function main(sum) {
 
   let total = 0
   for (let i in coins) {
-    total += total + coins[i] * coinsNum[i]
+    total += coins[i] * coinsNum[i]
   }
   console.log(total)
 
