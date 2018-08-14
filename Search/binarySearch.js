@@ -8,7 +8,7 @@ function binarySearch (arr, target) {
   let r = arr.length - 1
 
   while (l <= r) {
-    let mid = Math.floor(l + (r - l) / 2)
+    let mid = Math.floor(l + (r - l + 1) / 2)
 
     if (arr[mid] === target) return mid
 
@@ -39,8 +39,7 @@ function binarySearchByRecursion (arr, index, target) {
     return -1
 
   if (arr[mid] < target) {
-    index = index + mid
-    return binarySearchByRecursion(arr.slice(mid), index, target)
+    return binarySearchByRecursion(arr.slice(mid), index + mid, target)
   }
   if (arr[mid] > target) {
     return binarySearchByRecursion(arr.slice(0, mid), index, target)

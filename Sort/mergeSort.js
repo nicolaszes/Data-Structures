@@ -4,12 +4,12 @@ function mergeSort (arr) {
   }
 
   let mid = Math.floor(arr.length / 2);
-  let left = arr.slice(0, mid);
-  let right = arr.slice(mid, arr.length);
+  let leftArr = arr.slice(0, mid);
+  let rightArr = arr.slice(mid);
 
   // 分而治之的思想
   // 递归调用 mergeSort方法
-  return merge(mergeSort(left), mergeSort(right))
+  return merge(mergeSort(leftArr), mergeSort(rightArr))
 }
 
 function merge (left, right) {

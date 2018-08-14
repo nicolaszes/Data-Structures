@@ -100,7 +100,7 @@ function BinarySearchTree () {
     return minNode(root)
   }
 
-  var maxNode = function (root) {
+  var maxNode = function (node) {
     if (node) {
       while (node && node.right !== null) {
         node = node.right
@@ -111,21 +111,6 @@ function BinarySearchTree () {
 
   this.max = function () {
     return maxNode(root)
-  }
-
-  var searchNode = function (node, key) {
-    if (node === null) return false
-    if (key < node.key) {
-      return searchNode(node.left, key)
-    }
-    if (key > node.key) {
-      return searchNode(node.right, key)
-    }
-    return true
-  }
-
-  this.search = function (key) {
-    return searchNode(root, key)
   }
 
   var removeNode = function (node, element) {
