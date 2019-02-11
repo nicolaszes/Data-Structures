@@ -9,7 +9,7 @@ def search(name) :
     searched = []
 
     # 只要队列不为空
-    while search_queue :
+    while search_queue:
         # 取出其中的第一个人
         person = search_queue.popleft()
 
