@@ -5,6 +5,7 @@ class BinarySearchTree:
       self.preorder(root.left)
       self.preorder(root.right)
   
+  # 二叉搜索树下，inorder是一个有序数组
   def inorder(self, root):
     if root:
       self.inorder(root.left)
