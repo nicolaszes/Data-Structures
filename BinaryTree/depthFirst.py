@@ -1,5 +1,5 @@
 # 递归DFS
-def depth_first_search(self,root = None):
+def depth_first_search(self, root = None):
     order = []
     def dfs(node):
         self.visited[node] = True

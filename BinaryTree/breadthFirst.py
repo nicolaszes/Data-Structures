@@ -1,14 +1,14 @@
-def BFS(graph, start,  end):
+def breadth_first_search(self, graph, start,  end):
   queue = []
   queue.append([start])
-  visited.add(start)
+  self.visited.add(start)
 
   while queue:
     node = queue.pop()
-    visited.add(node)
+    self.visited.add(node)
 
-    process(node)
-    nodes = generate_related_nodes(node)
+    self.process(node)
+    nodes = self.generate_related_nodes(node)
     queue.push(nodes)
 
   # other processing work
