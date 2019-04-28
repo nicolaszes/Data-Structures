@@ -50,9 +50,11 @@ class Solution:
             level_size = len(queue)
             current_level = []
             
+            # 处理每一层的数据
             for _ in range(level_size):
                 node = queue.popleft()
                 current_level.append(node.val)
+                # 判断当前node是否还有子节点，如果有，则插入 queue当中，进行下一次遍历
                 if node.left: queue.append(node.left)
                 if node.right: queue.append(node.right)
             
