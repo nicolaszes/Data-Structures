@@ -28,6 +28,13 @@ class Solution:
     #         self.cols.remove(col)
     #         self.pie.remove(row + col)
     #         self.na.remove(row - col)
+    # def _generate_result(self, n):
+    #     board = []
+    #     for res in self.result:
+    #         for i in res:
+    #             board.append('.' * i + 'Q' + '.' * (n - i - 1))
+
+    #     return [board[i: i + n] for i in range(0, len(board), n)]
 
     def solveNQueens(self, n: int) -> List[List[str]]:
         self.result = []
@@ -45,9 +52,4 @@ class Solution:
                 self.DFS(n, queens + [q], xy_dif + [p - q], xy_sum + [p + q])
 
     def _generate_result(self, n):
-        board = []
-        for res in self.result:
-            for i in res:
-                board.append('.' * i + 'Q' + '.' * (n - i - 1))
-
-        return [board[i: i + n] for i in range(0, len(board), n)]
+        return [['.' * i + 'Q' + '.' * (n - i - 1) for i in sol] for sol in self.result]
