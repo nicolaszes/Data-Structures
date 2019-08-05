@@ -87,7 +87,9 @@ var threeSum = function (nums) {
 }
 
 /**
- * 受到上题的启发，在凑齐两人以后，他们可以找主持人登记需求的第三人，而不需要在茫茫人海中去找队友。 这样，我们就把问题优化成了每个人都要找其他每个人，即时间复杂度 O(n2) O(n2)，因为需要主持人记录数据，这里还有 O(n) O(n) 的空间复杂度。
+ * 受到上题的启发，在凑齐两人以后，他们可以找主持人登记需求的第三人，而不需要在茫茫人海中去找队友。
+ * 这样，我们就把问题优化成了每个人都要找其他每个人
+ * 即时间复杂度 O(n2) O(n2)，因为需要主持人记录数据，这里还有 O(n) O(n) 的空间复杂度。
  */
 var threeSum = function (nums) {
   let res = []
@@ -178,12 +180,12 @@ var threeSum = function (nums) {
   let { length } = nums
 
   // 优化1: 整个数组同符号，则无解
-  if (nums[0] <= 0 && nums[length - 1] >= 0) {
-    for (let i = 0; i < length - 2;) {
+  if (nums[0] <= 0 && nums[nums.length - 1] >= 0) {
+    for (let i = 0; i < nums.length - 2;) {
       // 优化2: 最左值为正数则一定无解
       if (nums[i] > 0) break
       let first = i + 1
-      let last = length - 1
+      let last = nums.length - 1
 
       do {
         // 两人选相遇，或者三人同符号，则退出
