@@ -13,29 +13,24 @@ class Solution:
 
 
 # DFS
-from collections import defaultdict
-lookup = defaultdict(int)
-    
 class Solution:
     def coinChange(self, coins: 'List[int]', amount: 'int') -> 'int':
-        if amount < 1:
+        self.res = float("inf")
+        n = len(coins)
+        if amount == 0:
             return 0
+        coins.sort(reverse = True)
+        if amount < coins[-1]:
+            return -1
 
-        def helper(amount):
-            if amount < 0:
-                return -1
-            if amount == 0:
-                return 0
-            if lookup[amount]:
-                return lookup[amount]
+        def dfs(loc, remain, count):
+            if remain == 0:
+                self.res = min(self.res, count)
+            else:
+                for i in range(loc, n):
+                    if coins[i] <= remain < coins[i] * (self.res - count):
+                        dfs(i, remain - coins[i], count + 1)
 
-            min_num = 2 ** 31 - 1
-            for coin in coins:
-                res = helper(amount - coin)
-                # min_num = min(min_num,res + 1)
-                if res >= 0 and res < min_num:
-                    min_num = res + 1
-            lookup[amount] = min_num if min_num != 2 ** 31 - 1 else -1
-            return lookup[amount]
-
-        return helper(amount)
+        for i in range(n):
+            dfs(i, amount, 0)
+        return self.res if self.res != float("inf") else -1
