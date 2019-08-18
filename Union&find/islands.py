@@ -15,6 +15,7 @@ class UnionFind (object):
             for j in range(n):
                 if grid[i][j] == '1':
                     self.parent[i * n + j] = i * n + j
+                    # 统计所有的 1
                     self.count += 1
 
     def find(self, i):
@@ -34,6 +35,7 @@ class UnionFind (object):
             else:
                 self.parent[rooty] = rootx
                 self.rank[rootx] += 1
+            # 合并 1，每合并一次减 1
             self.count -= 1
 
 class Solution(object):
@@ -51,6 +53,7 @@ class Solution(object):
                     continue
                 for d in directions:
                     nr, nc = i + d[0], j + d[1]
+                    # 若坐标合法
                     if nr >= 0 and nc >= 0 and nr < m and nc < n and grid[nr][nc] == '1':
                         uf.union(i * n + j, nr * n + nc)
 
