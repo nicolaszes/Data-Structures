@@ -22,7 +22,7 @@ class Solution:
         :type head: ListNode
         :rtype: ListNode
         """
-        result = ListNode[0]
+        result = ListNode(0)
         pre, pre.next = result, head
         while pre.next and pre.next.next:
             a = pre.next
