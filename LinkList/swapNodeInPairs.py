@@ -16,3 +16,17 @@ class Solution:
             pre.next, b.next, a.next = b, a, b.next
             pre = a
         return self.next
+
+    def swapPairs2(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        result = ListNode[0]
+        pre, pre.next = result, head
+        while pre.next and pre.next.next:
+            a = pre.next
+            b = a.next
+            pre.next, b.next, a.next = b, a, b.next
+            pre = a
+        return result.next
