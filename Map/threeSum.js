@@ -189,7 +189,7 @@ var threeSum = function (nums) {
 
       do {
         // 两人选相遇，或者三人同符号，则退出
-        if (first >= last || nums[i] * nums[last] > 0) break
+        if (first >= last || nums[i] * nums[first] * nums[last] > 0) break
         let result = nums[i] + nums[first] + nums[last]
         // 如果可以组队
         if (result === 0) {
